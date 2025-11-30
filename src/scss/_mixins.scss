@@ -1,0 +1,21 @@
+@mixin reset-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+@mixin reset-ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+@mixin card-example {
+    padding: 1px 8px;
+    font-size: 14px;
+    line-height: 150%;
+    border-radius: 4px;
+    color: #fff;
+    background-color: var(--bg-c);
+}

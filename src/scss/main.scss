@@ -1,0 +1,215 @@
+@import "./fonst.scss";
+@import "./mixins.scss";
+@import "./vars.scss";
+@import "./components.scss";
+
+body {
+  margin: 0 auto;
+  padding: 0 10px;
+  min-width: 320px;
+  max-width: 1230px;
+  font-family: $font-family;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 41px;
+  padding: 44px 0;
+  width: 100%;
+
+  .header_descr {
+    margin: 0;
+    margin-bottom: 8px;
+    padding-right: 52px;
+    font-size: 16px;
+    font-weight: 700;
+    color: $font-color;
+    line-height: $line-height;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .header_title {
+    margin: 0;
+    padding-right: 52px;
+    font-size: 46px;
+    font-weight: 900;
+    line-height: 130%;
+    color: $font-color;
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  width: 100%;
+
+  .main_filters_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    .filters_list {
+      @include reset-ul;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+
+      .item_btn {
+        @include reset-button;
+        display: flex;
+        gap: 4px;
+        padding: $spacing-btns;
+        border-radius: 4px;
+        border: 1px solid transparent;
+        &:hover {
+          border-color: #9a9ca5;
+        }
+
+        .btn_text {
+          margin: 0;
+          font-size: 16px;
+          font-weight: 700;
+          line-height: 160%;
+          color: #9a9ca5;
+        }
+
+        .btn_count {
+          font-size: 10px;
+          font-weight: 700;
+          line-height: $line-height;
+          color: #9a9ca5;
+        }
+      }
+
+      .active {
+        border-color: #ff3f3a;
+
+        .btn_text,
+        .btn_count {
+          color: #ff3f3a;
+        }
+      }
+    }
+
+    .filters_input {
+      padding-left: 15px;
+      min-width: 315px;
+      height: 41px;
+      border: 1px solid #d7dadd;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 400;
+      background-image: url("../../img/search.svg");
+      background-repeat: no-repeat;
+      background-size: 16px 16px;
+      background-position: 280px center;
+      &::placeholder {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: $line-height;
+        color: #9a9ca5;
+      }
+    }
+  }
+
+  .main_card_wrapper {
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    justify-content: center;
+    gap: 80px;
+    width: 100%;
+
+    .main_card_list {
+      @include reset-ul;
+      display: grid;
+      gap: 27px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 390px));
+
+      .main_card_item {
+        min-height: 438px;
+        border: 1px solid #e5e8ed;
+        border-radius: 4px;
+        box-shadow: 0px 80px 80px -20px rgba(154, 156, 165, 0.08),
+          0px 30px 24px -10px rgba(154, 156, 165, 0.05),
+          0px 12px 10px -6px rgba(154, 156, 165, 0.04),
+          0px 4px 4px -4px rgba(30, 33, 44, 0.03);
+
+        .bg-img-div {
+          min-height: 240px;
+          background-image: var(--bg);
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+
+        .item_wrapper_info {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: flex-start;
+          gap: 20px;
+          padding: 24px;
+
+          .info_example {
+            @include card-example;
+          }
+
+          .bg-green {
+            background-color: #03cea4;
+          }
+
+          .info_title {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 150%;
+            color: $font-color;
+          }
+
+          .info_descr {
+            margin: 0;
+            font-size: 18px;
+            line-height: 150%;
+            color: #787a80;
+          }
+
+          .info_price {
+            padding-right: 8px;
+            border-right: 1px solid #787a80;
+            color: #ff4242;
+          }
+
+          .info_name {
+            padding-left: 8px;
+          }
+        }
+      }
+    }
+
+    .main_card_wrapper_btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .main_card_more_btn {
+      @include reset-button;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding-bottom: 86px;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 160%;
+      color: #424551;
+    }
+  }
+}
