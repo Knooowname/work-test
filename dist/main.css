@@ -36,10 +36,16 @@ body {
   padding: 44px 0;
   width: 100%;
 }
+@media (max-width: 640px) {
+  .header {
+    margin-bottom: 0;
+    padding: 32px 0;
+  }
+}
 .header .header_descr {
   margin: 0;
   margin-bottom: 8px;
-  padding-right: 52px;
+  padding-right: clamp(0px, 3vw, 52px);
   font-size: 16px;
   font-weight: 700;
   color: #1e212c;
@@ -47,13 +53,23 @@ body {
   letter-spacing: 1px;
   text-transform: uppercase;
 }
+@media (max-width: 640px) {
+  .header .header_descr {
+    font-size: 14px;
+  }
+}
 .header .header_title {
   margin: 0;
-  padding-right: 52px;
+  padding-right: clamp(0px, 3vw, 52px);
   font-size: 46px;
   font-weight: 900;
   line-height: 130%;
   color: #1e212c;
+}
+@media (max-width: 640px) {
+  .header .header_title {
+    font-size: 28px;
+  }
 }
 
 .main {
@@ -61,6 +77,11 @@ body {
   flex-direction: column;
   gap: 60px;
   width: 100%;
+}
+@media (max-width: 640px) {
+  .main {
+    gap: 32px;
+  }
 }
 .main .main_filters_wrapper {
   display: flex;
@@ -75,6 +96,11 @@ body {
   display: flex;
   align-items: center;
   gap: 3px;
+}
+@media (max-width: 940px) {
+  .main .main_filters_wrapper .filters_list {
+    display: none;
+  }
 }
 .main .main_filters_wrapper .filters_list .item_btn {
   background: none;
@@ -103,6 +129,11 @@ body {
   line-height: 150%;
   color: #9a9ca5;
 }
+@media (max-width: 1150px) {
+  .main .main_filters_wrapper .filters_list .item_btn {
+    padding: 5px 10px;
+  }
+}
 .main .main_filters_wrapper .filters_list .active {
   border-color: #ff3f3a;
 }
@@ -112,7 +143,7 @@ body {
 }
 .main .main_filters_wrapper .filters_input {
   padding-left: 15px;
-  min-width: 315px;
+  width: clamp(200px, 20vw, 315px);
   height: 41px;
   border: 1px solid #d7dadd;
   border-radius: 4px;
@@ -121,13 +152,70 @@ body {
   background-image: url("../../img/search.svg");
   background-repeat: no-repeat;
   background-size: 16px 16px;
-  background-position: 280px center;
+  background-position: right 16px center;
 }
 .main .main_filters_wrapper .filters_input::placeholder {
   font-size: 14px;
   font-weight: 400;
   line-height: 150%;
   color: #9a9ca5;
+}
+.main .main_filters_wrapper .main_filters_mobile_wrapper {
+  position: relative;
+}
+.main .main_filters_wrapper .main_filters_mobile_wrapper .main_filters_button {
+  display: none;
+}
+@media (max-width: 940px) {
+  .main .main_filters_wrapper .main_filters_mobile_wrapper .main_filters_button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: block;
+    padding: 4px 8px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 160%;
+    border: 1px solid #9a9ca5;
+    border-radius: 4px;
+  }
+}
+.main .main_filters_wrapper .main_filters_mobile_wrapper .filters_list-mobile {
+  display: none;
+}
+@media (max-width: 940px) {
+  .main .main_filters_wrapper .main_filters_mobile_wrapper .filters_list-mobile {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: absolute;
+    top: 48px;
+    left: 0px;
+    width: 180px;
+    height: auto;
+    padding: 8px 12px;
+    background-color: white;
+    border: 1px solid #9a9ca5;
+    border-radius: 4px;
+    box-shadow: 0px 80px 80px -20px rgba(154, 156, 165, 0.08), 0px 30px 24px -10px rgba(154, 156, 165, 0.05), 0px 12px 10px -6px rgba(154, 156, 165, 0.04), 0px 4px 4px -4px rgba(30, 33, 44, 0.03);
+  }
+}
+.main .main_filters_wrapper .main_filters_mobile_wrapper .filters_list-mobile .filters_item-mobile:nth-last-child(1n) {
+  margin-bottom: 8px;
+}
+.main .main_filters_wrapper .main_filters_mobile_wrapper .filters_list-mobile .item_btn-mobile {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 4px 8px;
+  border: 1px solid #9a9ca5;
+  border-radius: 4px;
+}
+.main .main_filters_wrapper .main_filters_mobile_wrapper .active_mobile_filters {
+  display: block;
 }
 .main .main_card_wrapper {
   display: flex;
@@ -136,13 +224,18 @@ body {
   gap: 80px;
   width: 100%;
 }
+@media (max-width: 640px) {
+  .main .main_card_wrapper {
+    gap: 40px;
+  }
+}
 .main .main_card_wrapper .main_card_list {
   padding: 0;
   margin: 0;
   list-style: none;
   display: grid;
   gap: 27px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 390px));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 .main .main_card_wrapper .main_card_list .main_card_item {
   min-height: 438px;
@@ -216,6 +309,11 @@ body {
   font-weight: 700;
   line-height: 160%;
   color: #424551;
+}
+@media (max-width: 640px) {
+  .main .main_card_wrapper .main_card_more_btn {
+    padding-bottom: 32px;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

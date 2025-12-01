@@ -1,6 +1,6 @@
 @import "./fonst.scss";
-@import "./mixins.scss";
 @import "./vars.scss";
+@import "./mixins.scss";
 @import "./components.scss";
 
 body {
@@ -20,25 +20,40 @@ body {
   padding: 44px 0;
   width: 100%;
 
+  @media (max-width: 640px) {
+    margin-bottom: 0;
+    padding: 32px 0;
+  }
+
   .header_descr {
     margin: 0;
     margin-bottom: 8px;
-    padding-right: 52px;
+    padding-right: clamp(0px, 3vw, 52px);
+    ;
     font-size: 16px;
     font-weight: 700;
     color: $font-color;
     line-height: $line-height;
     letter-spacing: 1px;
     text-transform: uppercase;
+
+    @media (max-width: 640px) {
+      font-size: 14px;
+    }
   }
 
   .header_title {
     margin: 0;
-    padding-right: 52px;
+    padding-right: clamp(0px, 3vw, 52px);
+    ;
     font-size: 46px;
     font-weight: 900;
     line-height: 130%;
     color: $font-color;
+
+    @media (max-width: 640px) {
+      font-size: 28px;
+    }
   }
 }
 
@@ -47,6 +62,10 @@ body {
   flex-direction: column;
   gap: 60px;
   width: 100%;
+
+  @media (max-width: 640px) {
+    gap: 32px;
+  }
 
   .main_filters_wrapper {
     display: flex;
@@ -60,6 +79,10 @@ body {
       align-items: center;
       gap: 3px;
 
+      @media (max-width: 940px) {
+        display: none;
+      }
+
       .item_btn {
         @include reset-button;
         display: flex;
@@ -67,6 +90,7 @@ body {
         padding: $spacing-btns;
         border-radius: 4px;
         border: 1px solid transparent;
+
         &:hover {
           border-color: #9a9ca5;
         }
@@ -85,6 +109,10 @@ body {
           line-height: $line-height;
           color: #9a9ca5;
         }
+
+        @media (max-width: 1150px) {
+          padding: 5px 10px;
+        }
       }
 
       .active {
@@ -99,7 +127,7 @@ body {
 
     .filters_input {
       padding-left: 15px;
-      min-width: 315px;
+      width: clamp(200px, 20vw, 315px);
       height: 41px;
       border: 1px solid #d7dadd;
       border-radius: 4px;
@@ -108,7 +136,8 @@ body {
       background-image: url("../../img/search.svg");
       background-repeat: no-repeat;
       background-size: 16px 16px;
-      background-position: 280px center;
+      background-position: right 16px center;
+
       &::placeholder {
         font-size: 14px;
         font-weight: 400;
@@ -116,6 +145,64 @@ body {
         color: #9a9ca5;
       }
     }
+
+    .main_filters_mobile_wrapper {
+      position: relative;
+    
+      .main_filters_button {
+        display: none;
+  
+        @media (max-width: 940px) {
+          @include reset-button;
+          display: block;
+          padding: 4px 8px;
+          font-size: 14px;
+          font-weight: 700;
+          line-height: 160%;
+          border: 1px solid #9a9ca5;
+          border-radius: 4px;
+        }
+      }
+  
+      .filters_list-mobile {
+        display: none;
+  
+        @media(max-width: 940px) {
+          @include reset-ul;
+          position: absolute;
+          top: 48px;
+          left: 0px;
+          width: 180px;
+          height: auto;
+          padding: 8px 12px;
+          background-color: white;
+          border: 1px solid #9a9ca5;
+          border-radius: 4px;
+          box-shadow: 0px 80px 80px -20px rgba(154, 156, 165, 0.08),
+            0px 30px 24px -10px rgba(154, 156, 165, 0.05),
+            0px 12px 10px -6px rgba(154, 156, 165, 0.04),
+            0px 4px 4px -4px rgba(30, 33, 44, 0.03);
+        }
+
+        .filters_item-mobile:nth-last-child(1n) {
+          margin-bottom: 8px;
+        }
+
+        .item_btn-mobile {
+          @include reset-button;
+          font-size: 16px;
+          padding: 4px 8px;
+          border: 1px solid #9a9ca5;
+          border-radius: 4px;
+        }
+      }
+      
+      .active_mobile_filters {
+        display: block;
+      }
+    }
+
+
   }
 
   .main_card_wrapper {
@@ -126,11 +213,15 @@ body {
     gap: 80px;
     width: 100%;
 
+    @media (max-width: 640px) {
+      gap: 40px;
+    }
+
     .main_card_list {
       @include reset-ul;
       display: grid;
       gap: 27px;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 390px));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 
       .main_card_item {
         min-height: 438px;
@@ -194,10 +285,10 @@ body {
     }
 
     .main_card_wrapper_btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
     }
 
     .main_card_more_btn {
@@ -210,6 +301,10 @@ body {
       font-weight: 700;
       line-height: 160%;
       color: #424551;
+
+      @media (max-width: 640px) {
+        padding-bottom: 32px;
+      }
     }
   }
 }
