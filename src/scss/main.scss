@@ -1,7 +1,6 @@
 @import "./fonst.scss";
 @import "./vars.scss";
 @import "./mixins.scss";
-@import "./components.scss";
 
 body {
   margin: 0 auto;
@@ -225,6 +224,7 @@ body {
 
       .main_card_item {
         min-height: 438px;
+        max-width: 390px;
         border: 1px solid #e5e8ed;
         border-radius: 4px;
         box-shadow: 0px 80px 80px -20px rgba(154, 156, 165, 0.08),
